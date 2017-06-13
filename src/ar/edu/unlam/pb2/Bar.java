@@ -26,7 +26,7 @@ public class Bar {
 //		}
 //		
 		
-		//Se crea coleccion Set
+		// CON SET
 		private TreeSet <Cliente> clientes = new TreeSet<Cliente>();
 			
 		
@@ -35,23 +35,53 @@ public class Bar {
 			{
 				return clientes.size();
 			}
-			
 				
 				//Metodo para mostrar
 			public TreeSet<Cliente> mostrarClientes()
 			{
 				return clientes;
 			}
+					
+//-------------------------------------------------------------------------------------------
 			
+	// En el bar no se permiten Homeros
+	// Recordar tener solo un metodo 'admitirClientes' activo
 			
-				// Para admitir
-			public void admitirClientes(Cliente cliente)
-			{
+			//Se CAPTURA y  TRATA la excepcion
+			
+			public void admitirClientes(Cliente cliente) {
+				
+			if (cliente.getNombre()!="Homero") {
+				
+				try{								  //CAPTURO
 				clientes.add(cliente);
+				}
+				catch (Exception e) {      //TRATO
+					System.out.println("No se admiten Homeros");
+				}
+			  }		
+			else {
+					System.out.println("No se admiten Homeros");   //Muestro un mensaje por pantalla
+			  }
 			}
+	
+//-------------------------------------------------------------------------------------------			
+			
+			// Se LANZA la excepcion
+			
+//			public void admitirClientes(Cliente cliente) throws Exception
+//			{
+//				if (cliente.getNombre()!="Homero") {
+//				clientes.add(cliente);
+//				}
+//				else
+//				{
+//					throw new Exception("No se admiten Homeros");   //LANZO
+//				}
+//			}
 
-
-
+//-------------------------------------------------------------------------------------------			
+			
 			// para poder usar otro criterio de comparacion, sin importar el que tengo en la clase Cliente
 			
 			public TreeSet<Cliente> getClientes() {
